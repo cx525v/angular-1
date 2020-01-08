@@ -1,0 +1,15 @@
+get(): Observable<any> {
+  return this.http.get<any>(this.url)
+  .catch(this.errorHandler);
+}
+
+errorHandler(error: HttpErrorResponse) {
+  return Observable.throw(error.message || 'Server Error');
+}
+
+
+//
+ngOnInit() {
+  this.srv.get().subscribe(data => this.data= data,
+  error => this.errorMessage = error);
+}
