@@ -1,0 +1,13 @@
+{{name | lowercase}}
+{{name | uppercase}}
+{{name | titlecase}}
+{{ name | slice: 3:5}}
+{{5.678 | number:'1.2-3'}}
+{{0.25 | percent }}
+{{0.25 |currency}}
+{{0.25 | currency: 'GBP':'code'}}
+{{0.25 | currency: 'GBP'}}
+
+{{date | date:'short'}}
+{{date | date:'shortDate'}}
+{{date | date:'shortTime'}}
