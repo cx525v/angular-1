@@ -1,0 +1,6 @@
+<div [ngSwitch] = "color">
+  <div *ngSwitchCase="'red'"> red </div>
+  <div *ngSwitchCase="'blue'"> blue </div>
+  <div *ngSwitchCase="'green'"> green </div>
+  <div *ngSwitchDefault> ... </div>
+</div>
