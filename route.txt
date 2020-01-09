@@ -1,0 +1,8 @@
+let id = parseInt(this.route.snapshot.paramMap.get('id');
+//
+this.route.paramMap.subscribe((params: ParamMap) => {
+  let id = parseInt(params.get('id'));
+});
+//
+this.route.navigateI['/departments', id];
+
