@@ -1,0 +1,33 @@
+//routing-module.ts
+
+const routes: Routes = [
+  ...
+  {
+     path: 'departments/:id',
+     component: DepartmentDetailComponent,
+     children: [
+       { path: 'overview', component: DepartmentOverviewComponent},
+       { path: 'contact', component: DepartmentContactComponent}
+     ]
+  }
+]
+
+export class AppRountingModule{}
+//import at app module
+export const routingComponents = [DepartmentDetailComponent, DepartmentOverviewComponent, DepartmentContactComponent]
+
+
+//department-detail.components.html
+
+<button> (click) ="showOverview()">Overview</button>
+<button> (click) ="showContact()">Contact</button>
+
+
+//department-detail.component.ts
+
+showOverview() {
+  this.router.navigate(['overview'],{relativeTo: this.route});
+}
+showContact() {
+  this.router.navigate(['contact'],{relativeTo: this.route});
+}
