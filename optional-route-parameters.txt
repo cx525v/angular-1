@@ -1,0 +1,32 @@
+this.router.navigate(['/departments', {id: selectedId}]);
+
+
+//at parent component
+ngOninit() {
+ this.route.paramMap.subscribe((params: ParamMap) => {
+  let id =parseInt(params.get('id'));
+  this.selectedId = id;
+ });
+}
+
+isSelected(department) {
+ return department.id === this.selectedId;
+}
+
+//html
+<ul class ="items">
+ <li (click) ="onSelect(department)" [class.selected]="isSelected(department)" *ngFor ="let department of departments">
+  <span class="badge"> {{department.id}}</span> {{department.name}}
+ </li>
+ </ul>
+ 
+ //css
+ .items li.selected {
+   background-color: #CFD8DC;
+   color: white;
+ }
+ 
+ //everywhere else
+ * {
+   font-family: Arial, Helvetica, sans-serif;
+ }
