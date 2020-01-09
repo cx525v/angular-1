@@ -1,0 +1,13 @@
+ng add @angular/material
+
+//material sidenav
+ng generate @angular/material:material-nav --name=my-nav
+
+//dashboard
+ng generate @angular/material:material-dashboard --name=my-dashboard
+
+
+//datatable
+
+ng generate @angular/material:material-table --name=my-table
+
