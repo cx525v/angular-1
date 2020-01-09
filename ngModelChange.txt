@@ -1,0 +1,16 @@
+
+<input [(ngModel)] ="name" (ngModelChange) ="onChange($event)">
+
+onChange(value) {
+ console.log(value); //updated value
+}
+
+///
+<input #modelDir ="ngModel" [(ngModel)] ="name" (ngModelChange) ="onChange(modelDir)">
+
+onChange(ngModel: NgModel) {
+ console.log(ngModel.value); //old value
+}
+
+
+
