@@ -1,0 +1,19 @@
+
+ngOnInit() {
+ this.route.paramMap.subscribe((params: ParamMap) => {
+  let id = parseInt(params.get('id'));
+  this.selectedd = id;
+ });
+}
+
+//this.router.navigate(['/departments',department.id]);
+this.router.navigate([department.id], {relativeTo: this.route});
+
+
+//
+gotoDeparments() {
+ let selectedId = this.department.id;
+ 
+ //this.router.navigate(['/departments', {id: selectedId}]);
+ this.router.navigate(['../', {id: selectedId}], {relativeTo: this.route});
+}
