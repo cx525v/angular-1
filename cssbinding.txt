@@ -1,0 +1,17 @@
+<div [className]="condition ? 'example-class' : 'other-class'"></div>
+<div [class.example-class]="condition"></div>
+<div [ngClass]="'example-class'"></div>
+<div [ngClass]="['example-class', 'other-class']"></div>
+
+<div
+  [ngClass]="{
+  'example-class': condition
+}"
+></div>
+
+<div
+  [ngClass]="{
+  'example-class': condition,
+  'other-class': !condition
+}"
+></div>
