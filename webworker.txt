@@ -1,0 +1,140 @@
+// ng generate webWorker my-worker
+// app.worker.ts
+addEventListener('message', ({ data }) => {
+  const response = `worker response to ${data}`;
+  postMessage(response);
+});
+
+//app.component.ts
+//
+if (typeof Worker !== 'undefined') {
+  // Create a new
+  const worker = new Worker('./app.worker', { type: 'module' });
+  worker.onmessage = ({ data }) => {
+    console.log(`page got message: ${data}`);
+  };
+  worker.postMessage('hello');
+} else {
+  // Web Workers are not supported in this environment.
+  // You should add a fallback so that your program still executes correctly.
+  
+}
+
+
+
+ng add @angular/fire
+ng run my-app:deploy
+
+ constructor(){
+   if (typeof Worker !== 'undefined') {
+     this.worker = new Worker('./app.worker', { type: 'module' });;
+     this.worker.onmessage = ({ data }) => {
+       this.longProcessOutput += `${data}` + "\n";
+     };
+   } else {
+     console.log("Web Workers are not supported by your browser");
+   }
+ }
+
+ longLoop(){
+   this.longProcessOutput = "";
+   // the following line starts the long process on the Web Worker
+   // by sending a message to the Web Worker
+   this.worker.postMessage("start looping...");
+ }
+ 
+
+addEventListener('message', ({ data }) => {
+ console.log(`in worker EventListener : ${data}`);
+ for (var x = 1; x <=1000000000;x++){
+   var y = x/3.2;
+   if ((x % 20000000) == 0){
+     // posts the value back to our worker.onmessage handler
+      postMessage(x);
+      // don't need console any more --> console.log(x);
+   }
+ }
+}); 
+
+
+
+//worker.js
+
+function workIt(){
+  for (var x = 1; x <=1000000000;x++)
+  {
+  	y = x/3.2;
+    if ((x % 20000000) === 0){
+    	postMessage(x);
+    	console.log(x);
+    }
+  }
+}
+
+onmessage = function(e) {
+  console.log(e.data);
+  workIt();
+}
+
+//script.js
+
+setInterval(displayCurrentSeconds,300)
+
+function doHeavyWork(){
+  var myWorker = new Worker('worker.js');
+
+  myWorker.onmessage = function(e) {
+    $("#calcOutput").text(e.data);
+  }
+  
+  myWorker.postMessage("running");
+}
+
+function displayCurrentSeconds(){
+    $("#secondsOutput").text(new Date().getSeconds());
+}
+
+//index.html
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="jquery" data-semver="3.2.1" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <h1>Test Concurrency - Part 2 of 2</h1>
+    <h2>Implements Web Worker</h2>
+    <p>Works well in all modern (2019) browsers which implement Web Workers.</p>
+    <hr/>
+     <span><strong>secondsOutput</strong> => </span><span id="secondsOutput">
+    </span>
+    <div>
+      <span><strong>calcOutput</strong> => </span><span id="calcOutput">&lsqb;placeholder&rsqb;
+    </div>
+    </span>
+  <div>
+    <button onclick="doHeavyWork()">
+      Do Work
+    </button>
+    </div>
+    <p>1. The div above the button is updated each time the setInterval() method fires (3 times a second). 
+    The value displayed is the seconds portion of the current Date object.</p>
+    <p>2. When you click the button the DoHeavyWork() function will be called and the
+    code will iterate through a for loop.  Since the for loop and the setInterval()
+    work are done on the same thread you will see the update to the div pause.</p>
+    <p>3. Additionally, you can see the code in the doHeavyWork() method attempts to output
+     some information to a div but that output isn't seen by the user until the function
+     is complete.  </p>
+     <p>4. The browser does prioritize console.log output however, so you see more of that output if you
+     open the console window.</p>
+  </body>
+
+</html>
+
+
