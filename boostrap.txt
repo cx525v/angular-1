@@ -1,0 +1,110 @@
+<img src="..." class="img-fluid" alt="Responsive image">
+.img-responsive 
+
+d-none
+d-inline
+d-inline-block
+d-block
+d-table
+d-table-cell
+d-table-row
+d-flex
+d-inline-flex
+
+.btn-default.
+.btn-primary
+.btn-success
+.btn-info
+.btn-warning.
+.btn-danger.
+.btn-link
+
+.alert-success, .alert-info, .alert-warning, .alert-danger.
+.thumbnails
+.pagination.
+
+.collapse(options), collapse(‘show’) or .collapse(‘hide’)
+.carousel(options), .carousel(‘pause’), .carousel(cycle’), .carousel(‘prev’), .carousel(‘next’).
+
+.disabled .active
+
+ .form-control  .input-group. .input-group-addon
+ .nav  .nav-tabs  .nav-pills .navbar, .navbar-default .nav-header
+ 
+ jumbotron
+ 
+ .panel-heading panel-title
+ 
+ <a href="#">Home <span class="badge">36</span></a>
+ <span class=”glyphicon glyphicon-search”></span>
+ 
+ Fluid Layout: Fluid layout is used when you want to create a app that is 100% wide and use up all the width of the screen
+ Fixed Layout: For a standard screen you will use fixed layout (940 px) option
+ 
+ media
+.media-list
+
+<div class = "dropdown">
+<a id = "dLabel" role = "button" data-toggle = "dropdown" data-target = "#" href = "/somepage.html">
+Dropdown
+<span class = "caret"></span>
+</a>
+<ul class = "dropdown-menu" role = "menu" aria-labelledby = "dLabel">
+...
+</ul>
+</div>
+
+
+
+
+without boostrap
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+  width: 100%;
+  }
+}
+
+
+/* Extra small devices "mobile phones" */
+@media only screen and (max-width: 768px) {...} 
+ 
+/* Extra small devices "Tabs" */
+@media only screen and (max-width: 992px) {...} 
+/* Extra small devices "Tabs" */
+@media only screen and (max-width: 1200px) {...}
+ 
+@media only screen and (max-width: 1920px) {...}
+
+
+////////////////////////
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+@media (max-width: 767px){
+ //CSS declarations
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+ // CSS declarations
+}
+ 
+ @media (min-width: 1200px){
+// CSS declarations
+}
+ 
+ 
+ 
+
